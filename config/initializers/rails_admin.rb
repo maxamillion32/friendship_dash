@@ -31,4 +31,55 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+
+  config.model User do
+    
+    object_label_method :username
+
+    list do
+      field :role
+      field :first_name
+      field :last_name
+      field :username
+      field :phone
+      field :pin
+      field :email
+    end
+
+    edit do
+      field :role, :enum do
+        enum do
+          ['Researcher', 'Supervisor', "Research Assistant", "Health Worker"]
+        end
+      end
+      field :email
+      field :first_name
+      field :last_name
+      field :username
+      field :phone
+      field :pin
+      field :password
+      field :password_confirmation
+    end
+  end
+  def username
+    "#{self.username}" rescue "{self.email}"
+  end
+  config.model Participant do
+      
+      list do
+        field :health_worker
+        field :patient_identifier
+        field :first_name
+        field :last_name
+      end
+
+      edit do
+        field :first_name
+        field :last_name
+        field :phone
+        field :patient_identifier
+        field :health_worker
+      end
+    end
 end

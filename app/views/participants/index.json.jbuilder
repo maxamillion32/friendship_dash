@@ -1,0 +1,1 @@
+json.participants @participants, partial: "participants/participant", as: :participant
