@@ -22,8 +22,7 @@ set :pty, true
 set :linked_files, [
   "config/database.yml",
   "config/environments/#{ fetch(:stage) }.rb",
-  "config/initializers/secret_token.rb",
-  "config/initializers/devise_secret_token.rb"
+  "config/secrets.yml"
 ]
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
