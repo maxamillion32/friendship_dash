@@ -17,9 +17,15 @@ group :development, :test do
 end
 
 group :development do
-  gem "capistrano", "~> 3.2.1"
+  gem "capistrano", "~> 3.2.1", require: false
+  gem "capistrano-rails", "~> 1.1", require: false
+  gem "capistrano-rvm", "~> 0.1", require: false
+  gem "capistrano-bundler", "~> 1.1.2"
   gem "debugger"
   gem "spring"
+  gem "spring-commands-rspec"
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :test do
