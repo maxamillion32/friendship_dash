@@ -201,7 +201,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass
   cancan
-  capistrano
+  capistrano (~> 3.2.1)
   capybara
   debugger
   devise

@@ -17,7 +17,7 @@ group :development, :test do
 end
 
 group :development do
-  gem "capistrano"
+  gem "capistrano", "~> 3.2.1"
   gem "debugger"
   gem "spring"
 end
