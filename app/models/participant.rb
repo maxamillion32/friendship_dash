@@ -3,4 +3,10 @@ class Participant < ActiveRecord::Base
 
   validates :patient_identifier, presence: true
   validates :patient_identifier, uniqueness: true
+
+  before_validation :generate_guid, on: :create
+
+  def generate_guid
+    self.guid = SecureRandom.uuid
+  end
 end
