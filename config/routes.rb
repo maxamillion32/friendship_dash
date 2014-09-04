@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   namespace "api", constraints: { format: 'json' }  do
     get "users" => "users#index"
     # post "participants" => "participants#update"
-    get "participants" => "participants#index"
+    resources :participants, only: [:create, :index]
   end
 end
