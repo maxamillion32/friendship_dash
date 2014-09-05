@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   get 'home' => 'home#index'
   root 'home#index'
 
+  match "api/participants" => "application#options", via: :options
   namespace "api", constraints: { format: 'json' }  do
     get "users" => "users#index"
-    # post "participants" => "participants#update"
     resources :participants, only: [:create, :index]
   end
 end
