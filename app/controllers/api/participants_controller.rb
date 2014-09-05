@@ -9,9 +9,9 @@ module Api
     end
 
     def create
-      participants = JSON.parse(params[:participants])
+      @participants = JSON.parse(params[:participants])
 
-      participants.each do |p|
+      @participants.each do |p|
         puts p.health_worker_guid
       end
     end
