@@ -11,24 +11,33 @@ module Api
 
     def create
       participants = participant_params 
+      
       if participants
-          Participant.transaction do
-            participants.each do |p|
-            patient = Participant.find_or_create_by(patient_identifier: p["patient_identifier"], guid: p["guid"])
-
-            patient.update!(
+        Participant.transaction do
+          participants.each do |p|
+            
+            begin
+              patient = Participant.find_or_initialize_by(patient_identifier: p["patient_identifier"], guid: p["guid"])
+              patient.update_attributes(
                 first_name: p["first_name"],
                 last_name: p["last_name"],
                 address: p["address"],
                 city: p["city"],
                 phone: p["phone"]
             )
-            end 
-          end
-      end
+            rescue ActiveRecord::RecordNotUnique
+              retry
+            end
+
+            
+
+          end 
+        end
+        render json: { success: true, res: "Nice Work" }
+      else
+        render json: { error: true, res: "No patient data sent" }
         
-      render json: { success: true, res: "Nice Work" }
-        
+      end     
     end
 
     private

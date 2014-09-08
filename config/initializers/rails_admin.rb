@@ -72,14 +72,19 @@ RailsAdmin.config do |config|
         field :patient_identifier
         field :first_name
         field :last_name
+        field :phone
+        field :address
+        field :city
       end
 
       edit do
+        field :health_worker
+        field :patient_identifier
         field :first_name
         field :last_name
         field :phone
-        field :patient_identifier
-        field :health_worker
+        field :address
+        field :city
       end
     end
 end
