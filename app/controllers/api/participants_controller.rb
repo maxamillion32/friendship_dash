@@ -10,35 +10,31 @@ module Api
     end
 
     def create
-      participants = participant_params
+      participants = participant_params 
+      if participants
+          Participant.transaction do
+            participants.each do |p|
+            patient = Participant.find_or_create_by(patient_identifier: p["patient_identifier"], guid: p["guid"])
 
-      Participant.transaction do
-        participants.each do |p|
-          patient = Participant.find_or_create_by(patient_identifier: p["patient_id"], guid: p["guid"])
-
-          patient.update!(
-            first_name: p["first_name"],
-            last_name: p["last_name"],
-            address: p["address"],
-            city: p["city"],
-            phone: p["phone"]
-          )
-          # if !patient
-          #   raise ActiveRecord::RecordInvalid
-          # end
-        end
+            patient.update!(
+                first_name: p["first_name"],
+                last_name: p["last_name"],
+                address: p["address"],
+                city: p["city"],
+                phone: p["phone"]
+            )
+            end 
+          end
       end
-      
+        
       render json: { success: true, res: "Nice Work" }
-
-      rescue
-        render json: { error: "Failed to sync" }, status: 400
+        
     end
 
     private
 
     def participant_params
-      params.permit(participant: {}, participants: [:patient_id, :first_name, :last_name, :address, :city, :phone, :guid, :timestamp, :created_at]).require(:participants)
+      params.permit(participant: {}, participants: [:patient_identifier, :first_name, :last_name, :address, :city, :phone, :guid, :timestamp, :created_at]).require(:participants)
     end
   end
 end
