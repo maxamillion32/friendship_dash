@@ -1,4 +1,3 @@
-json._class "Participant"
 json.patient_identifier participant.patient_identifier
 json.guid participant.guid
 json.first_name participant.first_name
