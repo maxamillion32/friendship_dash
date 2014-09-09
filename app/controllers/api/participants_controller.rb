@@ -23,7 +23,8 @@ module Api
                 last_name: p["last_name"],
                 address: p["address"],
                 city: p["city"],
-                phone: p["phone"]
+                phone: p["phone"],
+                clinic: p["clinic"]
             )
             rescue ActiveRecord::RecordNotUnique
               retry
@@ -41,7 +42,7 @@ module Api
     private
 
     def participant_params
-      params.permit(participant: {}, participants: [:patient_identifier, :first_name, :last_name, :address, :city, :phone, :guid, :timestamp, :created_at]).require(:participants)
+      params.permit(participant: {}, participants: [:patient_identifier, :clinic, :first_name, :last_name, :address, :city, :phone, :guid, :timestamp, :created_at]).require(:participants)
     end
   end
 end
