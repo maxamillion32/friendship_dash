@@ -18,7 +18,8 @@ module Api
             
             begin
               Participant.create({ 
-                guid: p["guid"], 
+                guid: p["guid"],
+                patient_identifier: p["patient_identifier"],
                 first_name: p["first_name"],
                 last_name: p["last_name"],
                 address: p["address"],
