@@ -17,7 +17,7 @@ module Api
           participants.each do |p|
             
             begin
-              patient = Participant.create!(
+              patient = Participant.create!({
                 guid: p["guid"],
                 first_name: p["first_name"],
                 last_name: p["last_name"],
@@ -25,7 +25,7 @@ module Api
                 city: p["city"],
                 phone: p["phone"],
                 clinic: p["clinic"]
-            ) unless Participant.find(guid: p["guid"]).any?
+            }) unless Participant.find(guid: p["guid"]).any?
             
             rescue ActiveRecord::RecordNotUnique
               retry
