@@ -17,19 +17,19 @@ module Api
           participants.each do |p|
             
             begin
-              patient = Participant.find_or_initialize_by(guid: p["guid"])
-              patient.update_attributes(
+              patient = Participant.create!(
+                guid: p["guid"],
                 first_name: p["first_name"],
                 last_name: p["last_name"],
                 address: p["address"],
                 city: p["city"],
                 phone: p["phone"],
                 clinic: p["clinic"]
-            )
+            ) unless Participant.find(guid: p["guid"]).any?
+            
             rescue ActiveRecord::RecordNotUnique
               retry
             end
-
           end 
         end
         render json: { success: true, res: "Nice Work" }
