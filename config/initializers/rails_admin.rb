@@ -70,6 +70,7 @@ RailsAdmin.config do |config|
       list do
         field :health_worker
         field :patient_identifier
+        field :clinic
         field :guid
         field :first_name
         field :last_name
@@ -81,12 +82,12 @@ RailsAdmin.config do |config|
       edit do
         field :health_worker
         field :patient_identifier
+        field :clinic
         field :first_name
         field :last_name
         field :phone
         field :address
         field :city
-        field :guid
       end
     end
 end
