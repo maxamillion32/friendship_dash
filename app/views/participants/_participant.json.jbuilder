@@ -5,3 +5,5 @@ json.last_name participant.last_name
 json.address participant.address
 json.city participant.city
 json.phone participant.phone
+json.clinic participant.clinic
+
