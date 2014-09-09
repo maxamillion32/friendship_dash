@@ -4,10 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :participants,
-           foreign_key: :health_worker_id,
-           dependent: :nullify,
-           inverse_of: :health_worker
+  has_many :research_assistant_managed_participants, class_name: 'Participant', foreign_key: :research_assistant_id
+  has_many :health_worker_managed_participants, class_name: 'Participant', foreign_key: :health_worker_id
+    
 
   validates :pin, :username, presence: true
   before_validation :generate_guid, on: :create
