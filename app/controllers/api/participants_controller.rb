@@ -17,7 +17,7 @@ module Api
           participants.each do |p|
             
             begin
-              patient = Participant.find_or_initialize_by(patient_identifier: p["patient_identifier"], guid: p["guid"])
+              patient = Participant.find_or_initialize_by(guid: p["guid"])
               patient.update_attributes(
                 first_name: p["first_name"],
                 last_name: p["last_name"],
@@ -28,8 +28,6 @@ module Api
             rescue ActiveRecord::RecordNotUnique
               retry
             end
-
-            
 
           end 
         end
