@@ -19,4 +19,8 @@ class User < ActiveRecord::Base
     self.guid = SecureRandom.uuid
   end
 
+  def last_and_first_name
+    "#{last_name}, #{first_name}"
+  end
+
 end

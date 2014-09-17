@@ -35,13 +35,15 @@
       <tr>
         <th>Patient Identifier</th>
         <th>Name</th>
-        <th>clinic</th>
+        <th>Clinic</th>
+        <th>Activate</th>
       </tr>
       <% @inactive_participants.each do |participant| %>
         <tr>
           <td><%= participant.patient_identifier %></td>
           <td><%= participant.last_name%>, <%=participant.first_name%></td>
           <td><%= participant.clinic %></td>
+          <td><%= link_to '', activate_path(participant), class: "fa fa-thumbs-up fa-2x", id: "activate_#{participant.id}" %></td>
         </tr>
       <% end %>
     </table>

@@ -29,7 +29,7 @@ class ParticipantsController < ApplicationController
   private
 
   def participant_params
-    params.require(:participant).permit(:status, :patient_identifier, :clinic, :first_name, :last_name, :address, :city, :phone, :guid)
+    params.require(:participant).permit(:status, :patient_identifier, :clinic, :first_name, :last_name, :address, :city, :phone, :guid, :health_worker_id, :research_assistant_id)
   end
 
   def after_update_path
