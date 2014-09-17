@@ -1,20 +1,62 @@
 <h1>Review New Registrations</h1>
+<ul class="nav nav-tabs" id="participant-table">
+  <li class="active">
+    <a href="#pending" data-toggle="tab">Pending</a>
+  </li>
+  <li>
+    <a href="#ineligible" data-toggle="tab">Ineligible</a>
+  </li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane active" id="pending">
+    <table class="table table-bordered table-striped">
+      <tr>
+        <th>Patient Identifier</th>
+        <th>Name</th>
+        <th>Intake date</th>
+        <th>clinic</th>
+        <th>Activate</th>
+        <th>Deactivate</th>
+      </tr>
+      <% @pending_participants.each do |participant| %>
+        <tr>
+          <td><%= participant.patient_identifier %></td>
+          <td><%= participant.last_name%>, <%=participant.first_name%></td>
+          <td><%= participant.created_at.to_s(:long) %> UTC</td>
+          <td><%= participant.clinic %></td>
+          <td><%= link_to '', activate_path(participant), class: "fa fa-thumbs-up fa-2x", id: "activate_#{participant.id}" %></td>
+          <td><%= link_to '', participant_path(id: participant.id, participant: {status: 'ineligible'}), method: :put, class: "fa fa-thumbs-down fa-2x", id: "disqualify_#{participant.id}", :"data-confirm" => "Are you sure you want to deactivate this patient?" %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  <div class="tab-pane" id="ineligible">
+    <table class="table table-bordered table-striped">
+      <tr>
+        <th>Patient Identifier</th>
+        <th>Name</th>
+        <th>clinic</th>
+      </tr>
+      <% @inactive_participants.each do |participant| %>
+        <tr>
+          <td><%= participant.patient_identifier %></td>
+          <td><%= participant.last_name%>, <%=participant.first_name%></td>
+          <td><%= participant.clinic %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+<script>
 
-<table class="table table-bordered table-striped">
-  <tr>
-    <th>Patient Identifier</th>
-    <th>Name</th>
-    <th>clinic</th>
-    <th>Interviewer</th>
-    <th>Next Appointment</th>
-  </tr>
-  <% @participants.each do |participant| %>
-    <tr>
-      <td><%= participant.patient_identifier %></td>
-      <td><%= participant.last_name%>, <%=participant.first_name%></td>
-      <td><%= participant.clinic %></td>
-      <td><% participant.health_worker.last_name rescue ''%></td>
-      <td>[Next Appointment]</td>
-    </tr>
-  <% end %>
-</table>
+    function tabify() {
+        $('#participant-table a').click(function (e) {
+            e.preventDefault()
+            $(this).tab('show')
+        });
+    }
+
+    $(document).ready(tabify);
+    $(document).on("page:change", tabify);
+
+</script>

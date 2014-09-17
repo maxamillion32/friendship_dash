@@ -4,4 +4,9 @@ class Participant < ActiveRecord::Base
 
   validates :patient_identifier, presence: true
   validates :patient_identifier, uniqueness: true
+  
+  STATUS = ["pending", "active", "ineligible"]
+
+  validates :status, inclusion: { in: STATUS }
+
 end
