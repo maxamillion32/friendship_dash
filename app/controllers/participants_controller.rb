@@ -10,6 +10,10 @@ class ParticipantsController < ApplicationController
     @participant = Participant.find(params[:id])
   end
 
+  def active_index
+    @participants = Participant.where(status: "active")
+  end
+
   def update
     @participant = Participant.where(id: params[:id]).first
     if @participant.update(participant_params)

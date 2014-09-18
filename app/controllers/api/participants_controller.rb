@@ -5,7 +5,7 @@ module Api
     respond_to :json
 
     def index
-      @participants = Participant.all
+      @participants = Participant.where(status: "active")
       render "participants/index.json"
     end
 

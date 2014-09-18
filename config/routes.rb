@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   resources :participants, only: [:index, :show, :update]
   
   get "activate/:id" => "participants#activate", as: :activate
-  
+  get "active_index" => "participants#active_index", as: :active_participants
+
   # For client-side User and Participant syncing
   namespace "api", constraints: { format: 'json' }  do
     get "users" => "users#index"

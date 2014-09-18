@@ -1,0 +1,23 @@
+<%= render partial: 'partials/back', locals: {path: root_path}  %>
+
+<h1>Review Sessions / Assessments</h1>
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>Patient Identifier</th>
+    <th>Name</th>
+    <th>Interviewer</th>
+    <th>Progress (%)</th>
+    <th>Next Session</th>
+    <th>Issues</th>
+  </tr>
+  <% @participants.each do |participant| %>
+    <tr>
+      <td><%= participant.patient_identifier %></td>
+      <td><%= participant.last_name%>, <%=participant.first_name%></td>
+      <td><%= participant.health_worker.last_name%>, <%=participant.health_worker.first_name%></td>
+      <td>25%</td>
+      <td>Next session datetime</td>
+      <td>Issues</td>
+    </tr>
+  <% end %>
+</table>
