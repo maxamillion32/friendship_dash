@@ -12,7 +12,7 @@
   </tr>
   <% @participants.each do |participant| %>
     <tr>
-      <td><%= participant.patient_identifier %></td>
+      <td><%= link_to participant.patient_identifier, participant_path(participant.id) %></td>
       <td><%= participant.last_name%>, <%=participant.first_name%></td>
       <td><%= participant.health_worker.last_name%>, <%=participant.health_worker.first_name%></td>
       <td>25%</td>

@@ -1,1 +1,43 @@
-<h1><%= @patient.patient_identifier %></h1>
+<h1>Patient ID: <%= @participant.patient_identifier %></h1>
+<div class="row">
+  <div class="col-sm-2 col-md-2 col-lg-2">
+    <div class="current-session">
+      <h4 class="text-center">Current Session</h5>
+      <span>5</span>
+    </div>
+  </div>
+  <div class="col-sm-10 col-md-10 col-lg-10">
+    <h3>Sessions</h3>
+    <table class="table table-bordered table-striped">
+      <tr>
+        <th>Session #</th>
+        <th>Date / Time</th>
+        <th>Rescheduled?</th>
+        <th>Therapy Type</th>
+        <th>Responses</th>
+      </tr>
+      <!-- Dummy data -->
+      <tr>
+        <td>1</td>
+        <td>8/1/14</td>
+        <td>NO</td>
+        <td>PST</td>
+        <td>Key/Value pair data</td>
+      </tr>
+    </table>
+    <h3>Assessments</h3>
+    <table class="table table-bordered table-striped">
+      <tr>
+        <th>Assessment Name</th>
+        <th>Date / Time</th>
+        <th>Review</th>
+      </tr>
+      <!-- Dummy data -->
+      <tr>
+        <td>First Assessment</td>
+        <td>8/1/14</td>
+        <td class="text-center"><%=icon('eye fa-2x')%></td>
+      </tr>
+    </table>
+  </div>
+</div>
