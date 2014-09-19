@@ -11,20 +11,20 @@ div.navigation .well a {
 
 div.current-session {
   border: 3px solid #4e5d6c;
-  height: 125px;
+  height: 100px;
   text-align: center;
   margin-bottom: 15px;
-  margin-top: 20px;
   background: #4e5d6c;
 }
 
-div.current-session h4 {
-  color: white;
+h4.session-header {
+  margin-top: 25px;
+  color: #4e5d6c;
 }
 
 div.current-session span {
-  font-size: 62px;
+  font-size: 68px;
   color: white;
   position: relative;
-  top: -20px;
+  top: -10px;
 }
