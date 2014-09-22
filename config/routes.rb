@@ -7,13 +7,17 @@ Rails.application.routes.draw do
   match "api/participants", to: "application#options", via: :options
 
   resources :participants, only: [:index, :show, :update]
+  resources :users, only: [:create, :update]
   
   get "activate/:id", to: "participants#activate", as: :activate
   get "active_index", to: "participants#active_index", as: :active_participants
 
   get "health_workers", to: "health_workers#index", as: :health_workers
+  get "health_workers/new", to: "health_workers#new", as: :new_health_worker
   get "research_assistants", to: "research_assistants#index", as: :research_assistants
+  get "research_assistants/new", to: "research_assistants#new", as: :new_research_assistant
   get "supervisors", to: "supervisors#index", as: :supervisors
+  get "supervisors/new", to: "supervisors#new", as: :new_supervisor
 
   # For client-side User and Participant syncing
   namespace "api", constraints: { format: 'json' }  do

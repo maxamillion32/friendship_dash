@@ -1,6 +1,7 @@
 <%= render partial: 'partials/back', locals: {path: root_path}  %>
 
 <h1>Community Health Workers</h1>
+<%= link_to "Create New Health Worker", new_health_worker_path, class: "btn btn-warning" %>
 <table class="table table-bordered table-striped">
   <tr>
     <th>Name</th>
