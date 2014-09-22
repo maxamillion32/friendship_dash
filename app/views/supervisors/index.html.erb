@@ -1,0 +1,21 @@
+<%= render partial: 'partials/back', locals: {path: root_path}  %>
+
+<h1>Administrators</h1>
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>Role</th>
+    <th>Name</th>
+    <th>PIN</th>
+    <th>Email</th>
+    <th>Phone</th>
+  </tr>
+  <% @supervisors.each do |supervisor| %>
+    <tr>
+      <td><%= supervisor.role %></td>
+      <td><%= supervisor.last_name %>, <%= supervisor.first_name %></td>
+      <td><%= supervisor.pin%></td>
+      <td><%= supervisor.email%></td>
+      <td><%= supervisor.phone rescue '' %></td>
+    </tr>
+  <% end %>
+</table>

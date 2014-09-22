@@ -1,0 +1,19 @@
+<%= render partial: 'partials/back', locals: {path: root_path}  %>
+
+<h1>Research Assistants</h1>
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>Name</th>
+    <th>PIN</th>
+    <th>Email</th>
+    <th>Phone</th>
+  </tr>
+  <% @research_assistants.each do |research_assistant| %>
+    <tr>
+      <td><%= research_assistant.last_name %>, <%= research_assistant.first_name %></td>
+      <td><%= research_assistant.pin%></td>
+      <td><%= research_assistant.email%></td>
+      <td><%= research_assistant.phone rescue '' %></td>
+    </tr>
+  <% end %>
+</table>

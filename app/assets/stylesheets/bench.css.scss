@@ -8,6 +8,16 @@ div.navigation .well a {
     margin: 0 auto;
     margin-bottom: 10px;
 }
+div.navigation .well .btn-group {
+    width:60%;
+    float: none;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+div.btn-group button{
+  width: 33.333333%;
+}
 
 div.current-session {
   border: 3px solid #4e5d6c;
@@ -27,4 +37,8 @@ div.current-session span {
   color: white;
   position: relative;
   top: -10px;
+}
+
+div.button-group button {
+
 }

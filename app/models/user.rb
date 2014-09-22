@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :health_worker_managed_participants, class_name: 'Participant', foreign_key: :health_worker_id
     
 
-  validates :pin, :username, presence: true
+  validates :pin, presence: true
   before_validation :generate_guid, on: :create
   
   ROLES = ["Researcher", "Supervisor", "Research Assistant", "Health Worker"]
