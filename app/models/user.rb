@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
 
   validates :pin, presence: true
   before_validation :generate_guid, on: :create
+  before_validation :generate_default_password, on: :create
   
   ROLES = ["Researcher", "Supervisor", "Research Assistant", "Health Worker"]
 
@@ -17,6 +18,12 @@ class User < ActiveRecord::Base
 
   def generate_guid
     self.guid = SecureRandom.uuid
+  end
+
+  def generate_default_password
+    if !self.password
+      self.password = SecureRandom.uuid
+    end
   end
 
   def last_and_first_name

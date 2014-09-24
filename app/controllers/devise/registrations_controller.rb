@@ -6,7 +6,7 @@ class Devise::RegistrationsController < DeviseController
     @user = User.new(user_params)
     if @user.save
       redirect_to after_sign_up_path_for(@user),
-                  notice: "Successfully created #{user.role}"
+                  notice: "Successfully created #{@user.role}"
     else
       flash[:alert] = @user.errors.full_messages.join(", ")
       render failed_create_template(@user)
@@ -39,5 +39,9 @@ class Devise::RegistrationsController < DeviseController
     else
       "supervisors/new"
     end
+  end
+
+  def sign_up(resource_name, resource)
+    return false
   end
 end
