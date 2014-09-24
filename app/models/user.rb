@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   before_validation :generate_default_password, on: :create
   
   ROLES = ["Researcher", "Supervisor", "Research Assistant", "Health Worker"]
+  validates :role, inclusion: { in: ROLES }
 
   private
 

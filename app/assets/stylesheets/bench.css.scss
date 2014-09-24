@@ -39,6 +39,8 @@ div.current-session span {
   top: -10px;
 }
 
-div.button-group button {
-
+button, .btn {
+  font-size: 1.3vw !important;
 }
+
+a.create-button {}
