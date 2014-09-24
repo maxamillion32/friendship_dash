@@ -40,8 +40,4 @@ class Devise::RegistrationsController < DeviseController
       "supervisors/new"
     end
   end
-
-  def sign_up(resource_name, resource)
-    return false
-  end
 end
