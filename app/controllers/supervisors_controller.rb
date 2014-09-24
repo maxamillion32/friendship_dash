@@ -1,5 +1,6 @@
 class SupervisorsController < ApplicationController
-
+  before_action :authenticate_user!
+  
   def index
     @supervisors = User.where(role: "Supervisor")
   end

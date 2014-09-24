@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
 
   has_many :research_assistant_managed_participants, class_name: 'Participant', foreign_key: :research_assistant_id
   has_many :health_worker_managed_participants, class_name: 'Participant', foreign_key: :health_worker_id
-    
 
+  validates_confirmation_of :password
   validates :pin, presence: true
   before_validation :generate_guid, on: :create
   before_validation :generate_default_password, on: :create
