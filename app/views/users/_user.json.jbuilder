@@ -1,5 +1,5 @@
 json._class "User"
-json.username user.username
+json.email user.email
 json.pin user.pin
 json.role user.role
 json.guid user.guid
