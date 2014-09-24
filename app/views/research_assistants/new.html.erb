@@ -1,0 +1,32 @@
+<h1>Create New Community Health Worker</h1>
+<%= form_for @user, url: user_registration_path, method: :post, html: {role: "form", class: "col-sm-8 col-md-8 col-lg-8"} do |f| %>
+  <div class="form-group">
+    <%= f.label :first_name, class: "control-label" %>
+    <%= f.text_field :first_name, class: "form-control", required: true %>
+  </div>
+  <div class="form-group">
+    <%= f.label :last_name, class: "control-label" %>
+    <%= f.text_field :last_name, class: "form-control", required: true %>
+  </div>
+  <div class="form-group">
+    <%= f.label :email, class: "control-label" %>
+    <%= f.text_field :email, class: "form-control", required: true %>
+  </div>
+  <div class="form-group">
+    <%= f.label :pin, class: "control-label" %>
+    <%= f.text_field :pin, class: "form-control", required: true %>
+  </div>
+  <div class="form-group">
+    <%= f.label :password, class: "control-label" %>
+    <%= f.text_field :password, class: "form-control", required: true %>
+  </div>
+  <div class="form-group">
+    <%= f.label :phone, class: "control-label" %>
+    <%= f.text_field :phone, class: "form-control", required: true %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+    <%= link_to "Cancel", research_assistants_path, class: "btn btn-default" %>
+  </div>
+    <%= f.hidden_field :role, value: "Reserach Assistant" %>
+<% end %>

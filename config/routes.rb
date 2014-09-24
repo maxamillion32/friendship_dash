@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {registrations: 'devise/registrations'}
   
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   match "api/participants", to: "application#options", via: :options
 
   resources :participants, only: [:index, :show, :update]
-  resources :users, only: [:create, :update]
   
   get "activate/:id", to: "participants#activate", as: :activate
   get "active_index", to: "participants#active_index", as: :active_participants

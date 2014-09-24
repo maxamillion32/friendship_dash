@@ -5,6 +5,10 @@ class HealthWorkersController < ApplicationController
   end
 
   def new
-    @user = User.new(role: "Health Worker")
+    @user = User.new
   end
+
+  def create
+  end
+
 end

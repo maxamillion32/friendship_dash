@@ -1,9 +1,11 @@
 <%= render partial: 'partials/back', locals: {path: root_path}  %>
+<%= link_to new_supervisor_path, class: "btn btn-warning pull-right" do %>
+  <%= icon 'plus' %> Create Supervisor
+<% end %>
 
-<h1>Administrators</h1>
+<h1>Supervisors</h1>
 <table class="table table-bordered table-striped">
   <tr>
-    <th>Role</th>
     <th>Name</th>
     <th>PIN</th>
     <th>Email</th>
@@ -11,7 +13,6 @@
   </tr>
   <% @supervisors.each do |supervisor| %>
     <tr>
-      <td><%= supervisor.role %></td>
       <td><%= supervisor.last_name %>, <%= supervisor.first_name %></td>
       <td><%= supervisor.pin%></td>
       <td><%= supervisor.email%></td>

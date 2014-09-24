@@ -30,5 +30,5 @@ class ApplicationController < ActionController::Base
       render text: '', content_type: 'text/plain', status: 200
     end
   end
- 
+
 end
