@@ -54,12 +54,9 @@ NameVirtualHost *:443
   ServerName friendshipbench-staging.cbits.northwestern.edu
 
   SSLEngine On
-#  SSLCertificateFile /etc/pki/tls/certs/cbits-railsapps.nubic.northwestern.edu.crt
-#  SSLCertificateChainFile /etc/pki/tls/certs/komodo_intermediate_ca.crt
-#  SSLCertificateKeyFile /etc/pki/tls/private/cbits-railsapps.nubic.northwestern.edu.key
-  # Use the "snake oil" cert for now
-  SSLCertificateFile  /etc/pki/tls/certs/localhost.crt
-  SSLCertificateKeyFile /etc/pki/tls/private/localhost.key
+  SSLCertificateFile /etc/pki/tls/certs/cbits.northwestern.edu.crt
+  SSLCertificateChainFile /etc/pki/tls/certs/cbits.northwestern.edu_intermediate.crt
+  SSLCertificateKeyFile /etc/pki/tls/private/cbits.northwestern.edu.key
 
   DocumentRoot #{ fetch(:deploy_to) }/current/public
   RailsBaseURI /
