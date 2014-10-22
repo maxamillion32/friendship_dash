@@ -1,0 +1,20 @@
+AllCops:
+  Exclude:
+    - bin/**/*
+    - config/**/*
+    - db/**/*
+    - vendor/**/*
+
+Documentation:
+  Exclude:
+    - spec/**/*
+
+LineLength:
+  Exclude:
+    - spec/**/*
+
+MethodLength:
+  Max: 15
+
+StringLiterals:
+  EnforcedStyle: double_quotes

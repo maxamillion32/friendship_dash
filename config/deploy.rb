@@ -4,7 +4,7 @@ lock "3.2.1"
 set :application, "friendship_dash"
 set :repo_url, "git@github.com:cbitstech/#{ fetch(:application) }.git"
 set :rvm_type, :system
-set :rvm_ruby_version, "2.1.1"
+set :rvm_ruby_version, "2.1.3"
 
 # Default branch is :master
 ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
@@ -49,7 +49,7 @@ NameVirtualHost *:443
 <VirtualHost *:443>
   PassengerFriendlyErrorPages off
   PassengerAppEnv staging
-  PassengerRuby /usr/local/rvm/wrappers/ruby-2.1.1/ruby
+  PassengerRuby /usr/local/rvm/wrappers/ruby-2.1.3/ruby
 
   ServerName friendshipbench-staging.cbits.northwestern.edu
 
