@@ -9,9 +9,11 @@ class User < ActiveRecord::Base
 
   validates_confirmation_of :password
   validates :pin, presence: true
+  validates :pin, uniqueness: true
+
   before_validation :generate_guid, on: :create
   before_validation :generate_default_password, on: :create
-  
+
   ROLES = ["Researcher", "Supervisor", "Research Assistant", "Health Worker"]
   validates :role, inclusion: { in: ROLES }
 
