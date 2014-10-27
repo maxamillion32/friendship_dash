@@ -15,7 +15,7 @@
   </tr>
   <% @health_workers.each do |health_worker| %>
     <tr>
-      <td><%= health_worker.last_name %>, <%= health_worker.first_name %></td>
+      <td><%=link_to "#{health_worker.last_and_first_name}", edit_health_worker_path(health_worker) %></td>
       <td><%= health_worker.pin%></td>
       <td><%= health_worker.email%></td>
       <td><%= health_worker.phone rescue '' %></td>

@@ -14,7 +14,7 @@
   </tr>
   <% @research_assistants.each do |research_assistant| %>
     <tr>
-      <td><%= research_assistant.last_name %>, <%= research_assistant.first_name %></td>
+      <td><%=link_to "#{research_assistant.last_and_first_name}", edit_research_assistant_path(research_assistant) %></td>
       <td><%= research_assistant.pin%></td>
       <td><%= research_assistant.email%></td>
       <td><%= research_assistant.phone rescue '' %></td>

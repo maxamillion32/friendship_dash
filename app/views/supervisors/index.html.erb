@@ -14,7 +14,7 @@
   </tr>
   <% @supervisors.each do |supervisor| %>
     <tr>
-      <td><%= supervisor.last_name %>, <%= supervisor.first_name %></td>
+      <td><%=link_to "#{supervisor.last_and_first_name}", edit_supervisor_path(supervisor) %></td>
       <td><%= supervisor.pin%></td>
       <td><%= supervisor.email%></td>
       <td><%= supervisor.phone rescue '' %></td>
