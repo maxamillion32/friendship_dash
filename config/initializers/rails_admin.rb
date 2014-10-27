@@ -33,14 +33,13 @@ RailsAdmin.config do |config|
   end
 
   config.model User do
-    
-    object_label_method :username
+
+    object_label_method :email
 
     list do
       field :role
       field :first_name
       field :last_name
-      field :username
       field :phone
       field :pin
       field :email
@@ -62,11 +61,11 @@ RailsAdmin.config do |config|
       field :password_confirmation
     end
   end
-  def username
-    "#{self.username}" rescue "{self.email}"
+  def email
+    "{self.email}"
   end
   config.model Participant do
-      
+
       list do
         field :health_worker
         field :research_assistant
