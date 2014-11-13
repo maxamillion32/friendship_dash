@@ -10,7 +10,8 @@ class SurveysController < ApplicationController
   end
 
   def index
-    @surveys = Survey.order(:survey_type, orderer: :asc)
+    @search = Survey.search(params[:q])
+    @surveys = @search.result
     respond_with(@surveys)
   end
 

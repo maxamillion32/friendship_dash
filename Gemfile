@@ -12,6 +12,8 @@ gem "rails_admin", "= 0.6.3"
 gem "cancan", "~> 1.6"
 gem "font-awesome-sass", '~> 4.2.0'
 gem "jbuilder", "~> 2.1"
+gem "ransack"
+
 group :development, :test do
   gem "rspec-rails", "~> 3.0.0.beta"
   gem "brakeman"

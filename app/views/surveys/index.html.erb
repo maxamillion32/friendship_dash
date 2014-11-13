@@ -1,14 +1,24 @@
 
 <%= render partial: 'partials/back', locals: {path: root_path}  %>
 
-<%= form_tag import_surveys_path, class: "form pull-right", multipart: true do %>
+<%= form_tag import_surveys_path, class: "form pull-right form-inline", multipart: true do %>
   <div class="form-group">
     <%= file_field_tag :file %>
     <p class="help-block">CSV column names must match this table exactly</p>
   </div>
+  <%= submit_tag "Import", class: "btn" %>
+<% end %>
+
+<%= search_form_for @search, class: "form-inline" do |f| %>
   <div class="form-group">
-    <%= submit_tag "Import", class: "btn" %>
+      <%= f.label :group_cont, "Group contains", class: "sr-only" %>
+      <%= f.text_field :group_cont, class: "form-control", placeholder: "Group" %>
   </div>
+  <div class="form-group">
+    <%= f.label :language_cont, "Language", class: "sr-only"  %>
+    <%= f.text_field :language_cont, class: "form-control", placeholder: "Language" %>
+  </div>
+  <%= f.submit "Search", class: "btn" %>
 <% end %>
 
 <h1>Survey Questions</h1>
@@ -16,7 +26,7 @@
 <table class="table table-bordered table-striped">
     <tr>
       <th>Group</th>
-      <th>Orderer</th>
+      <th><%= sort_link(@search, :orderer, 'Order', default_order: :asc )%></th>
       <th>Survey Type</th>
       <th>Language</th>
       <th>Data label</th>
