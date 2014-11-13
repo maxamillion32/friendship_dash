@@ -1,30 +1,33 @@
 
 <%= render partial: 'partials/back', locals: {path: root_path}  %>
 
-<%= form_tag import_surveys_path, class: "form pull-right form-inline", multipart: true do %>
-  <div class="form-group">
-    <%= file_field_tag :file %>
-    <p class="help-block">CSV column names must match this table exactly</p>
-  </div>
-  <%= submit_tag "Import", class: "btn" %>
-<% end %>
+<div class="pull-right">
+  <%= form_tag import_surveys_path, class: "form form-inline", multipart: true do %>
+    <div class="form-group">
+      <%= file_field_tag :file %>
+      <p class="help-block">CSV column names must match this table exactly</p>
+    </div>
+    <%= submit_tag "Import", class: "btn btn-primary btn-sm pull-right" %>
+  <% end %>
 
-<%= search_form_for @search, class: "form-inline" do |f| %>
-  <div class="form-group">
-      <%= f.label :group_cont, "Group contains", class: "sr-only" %>
-      <%= f.text_field :group_cont, class: "form-control", placeholder: "Group" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :language_cont, "Language", class: "sr-only"  %>
-    <%= f.text_field :language_cont, class: "form-control", placeholder: "Language" %>
-  </div>
-  <%= f.submit "Search", class: "btn" %>
-<% end %>
+  <%= search_form_for @search, class: "form-inline" do |f| %>
+    <div class="form-group">
+        <%= f.label :group_cont, "Group contains", class: "sr-only" %>
+        <%= f.text_field :group_cont, class: "form-control", placeholder: "Group" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :language_cont, "Language", class: "sr-only"  %>
+      <%= f.text_field :language_cont, class: "form-control", placeholder: "Language" %>
+    </div>
+    <%= f.submit "Filter", class: "btn btn-default" %>
+  <% end %>
+</div>
 
 <h1>Survey Questions</h1>
 
 <table class="table table-bordered table-striped">
     <tr>
+      <th colspan="2"></th>
       <th>Group</th>
       <th><%= sort_link(@search, :orderer, 'Order', default_order: :asc )%></th>
       <th>Survey Type</th>
@@ -66,10 +69,19 @@
       <th>Response16</th>
       <th>Response16 value</th>
       <th>Required</th>
-      <th colspan="3"></th>
     </tr>
     <% @surveys.each do |survey| %>
       <tr>
+        <td>
+          <%= link_to survey do%>
+            <%= icon "eye" %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to edit_survey_path(survey) do %>
+            <%= icon "edit" %>
+          <% end %>
+        </td>
         <td><%= survey.group %></td>
         <td><%= survey.orderer %></td>
         <td><%= survey.survey_type %></td>
@@ -111,9 +123,6 @@
         <td><%= survey.response16 %></td>
         <td><%= survey.response16_value %></td>
         <td><%= survey.required %></td>
-        <td><%= link_to 'Show', survey %></td>
-        <td><%= link_to 'Edit', edit_survey_path(survey) %></td>
-        <td><%= link_to 'Destroy', survey, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
 </table>
