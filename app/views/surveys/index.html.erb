@@ -1,12 +1,17 @@
 
 <%= render partial: 'partials/back', locals: {path: root_path}  %>
 
-<%= form_tag import_surveys_path, class: "btn btn-warning pull-right create-button", multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
+<%= form_tag import_surveys_path, class: "form pull-right", multipart: true do %>
+  <div class="form-group">
+    <%= file_field_tag :file %>
+    <p class="help-block">CSV column names must match this table exactly</p>
+  </div>
+  <div class="form-group">
+    <%= submit_tag "Import", class: "btn" %>
+  </div>
 <% end %>
 
-<h1>Surveys</h1>
+<h1>Survey Questions</h1>
 
 <table class="table table-bordered table-striped">
     <tr>

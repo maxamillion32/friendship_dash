@@ -1,6 +1,8 @@
 class SurveysController < ApplicationController
+  before_action :authenticate_user!
+
   before_action :set_survey, only: [:show, :edit, :update, :destroy]
-   respond_to :js, :html, :json
+  respond_to :js, :html, :json
 
   def import
     Survey.import(params[:file])
