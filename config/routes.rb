@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users, controllers: {registrations: 'devise/registrations'}
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -25,6 +26,10 @@ Rails.application.routes.draw do
   get "supervisors", to: "supervisors#index", as: :supervisors
   get "supervisors/new", to: "supervisors#new", as: :new_supervisor
   get "supervisors/edit/:id", to: "supervisors#edit", as: :edit_supervisor
+
+  resources :surveys do
+    collection { post :import }
+  end
 
   resources :users, only: [:update]
 

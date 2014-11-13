@@ -1,0 +1,181 @@
+<%= form_for(@survey) do |f| %>
+  <% if @survey.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@survey.errors.count, "error") %> prohibited this survey from being saved:</h2>
+
+      <ul>
+      <% @survey.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :group %><br>
+    <%= f.text_field :group %>
+  </div>
+  <div class="field">
+    <%= f.label :orderer %><br>
+    <%= f.number_field :orderer %>
+  </div>
+  <div class="field">
+    <%= f.label :survey_type %><br>
+    <%= f.text_field :survey_type %>
+  </div>
+  <div class="field">
+    <%= f.label :language %><br>
+    <%= f.text_field :language %>
+  </div>
+  <div class="field">
+    <%= f.label :data_label %><br>
+    <%= f.text_field :data_label %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </div>
+  <div class="field">
+    <%= f.label :response0 %><br>
+    <%= f.text_field :response0 %>
+  </div>
+  <div class="field">
+    <%= f.label :response0_value %><br>
+    <%= f.text_field :response0_value %>
+  </div>
+  <div class="field">
+    <%= f.label :response1 %><br>
+    <%= f.text_field :response1 %>
+  </div>
+  <div class="field">
+    <%= f.label :response1_value %><br>
+    <%= f.text_field :response1_value %>
+  </div>
+  <div class="field">
+    <%= f.label :response2 %><br>
+    <%= f.text_field :response2 %>
+  </div>
+  <div class="field">
+    <%= f.label :response2_value %><br>
+    <%= f.text_field :response2_value %>
+  </div>
+  <div class="field">
+    <%= f.label :response3 %><br>
+    <%= f.text_field :response3 %>
+  </div>
+  <div class="field">
+    <%= f.label :response3_value %><br>
+    <%= f.text_field :response3_value %>
+  </div>
+  <div class="field">
+    <%= f.label :response4 %><br>
+    <%= f.text_field :response4 %>
+  </div>
+  <div class="field">
+    <%= f.label :response4_value %><br>
+    <%= f.text_field :response4_value %>
+  </div>
+  <div class="field">
+    <%= f.label :response5 %><br>
+    <%= f.text_field :response5 %>
+  </div>
+  <div class="field">
+    <%= f.label :response5_value %><br>
+    <%= f.text_field :response5_value %>
+  </div>
+  <div class="field">
+    <%= f.label :response6 %><br>
+    <%= f.text_field :response6 %>
+  </div>
+  <div class="field">
+    <%= f.label :response6_value %><br>
+    <%= f.text_field :response6_value %>
+  </div>
+  <div class="field">
+    <%= f.label :response7 %><br>
+    <%= f.text_field :response7 %>
+  </div>
+  <div class="field">
+    <%= f.label :response7_value %><br>
+    <%= f.text_field :response7_value %>
+  </div>
+  <div class="field">
+    <%= f.label :response8 %><br>
+    <%= f.text_field :response8 %>
+  </div>
+  <div class="field">
+    <%= f.label :response8_value %><br>
+    <%= f.text_field :response8_value %>
+  </div>
+  <div class="field">
+    <%= f.label :response9 %><br>
+    <%= f.text_field :response9 %>
+  </div>
+  <div class="field">
+    <%= f.label :response9_value %><br>
+    <%= f.text_field :response9_value %>
+  </div>
+  <div class="field">
+    <%= f.label :response10 %><br>
+    <%= f.text_field :response10 %>
+  </div>
+  <div class="field">
+    <%= f.label :response10_value %><br>
+    <%= f.text_field :response10_value %>
+  </div>
+  <div class="field">
+    <%= f.label :response11 %><br>
+    <%= f.text_field :response11 %>
+  </div>
+  <div class="field">
+    <%= f.label :response11_value %><br>
+    <%= f.text_field :response11_value %>
+  </div>
+  <div class="field">
+    <%= f.label :response12 %><br>
+    <%= f.text_field :response12 %>
+  </div>
+  <div class="field">
+    <%= f.label :response12_value %><br>
+    <%= f.text_field :response12_value %>
+  </div>
+  <div class="field">
+    <%= f.label :response13 %><br>
+    <%= f.text_field :response13 %>
+  </div>
+  <div class="field">
+    <%= f.label :response13_value %><br>
+    <%= f.text_field :response13_value %>
+  </div>
+  <div class="field">
+    <%= f.label :response14 %><br>
+    <%= f.text_field :response14 %>
+  </div>
+  <div class="field">
+    <%= f.label :response14_value %><br>
+    <%= f.text_field :response14_value %>
+  </div>
+  <div class="field">
+    <%= f.label :response15 %><br>
+    <%= f.text_field :response15 %>
+  </div>
+  <div class="field">
+    <%= f.label :response15_value %><br>
+    <%= f.text_field :response15_value %>
+  </div>
+  <div class="field">
+    <%= f.label :response16 %><br>
+    <%= f.text_field :response16 %>
+  </div>
+  <div class="field">
+    <%= f.label :response16_value %><br>
+    <%= f.text_field :response16_value %>
+  </div>
+  <div class="field">
+    <%= f.label :required %><br>
+    <%= f.check_box :required %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,104 @@
+
+<%= render partial: 'partials/back', locals: {path: root_path}  %>
+
+<%= form_tag import_surveys_path, class: "btn btn-warning pull-right create-button", multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
+
+<h1>Surveys</h1>
+
+<table class="table table-bordered table-striped">
+    <tr>
+      <th>Group</th>
+      <th>Orderer</th>
+      <th>Survey Type</th>
+      <th>Language</th>
+      <th>Data label</th>
+      <th>Content</th>
+      <th>Response0</th>
+      <th>Response0 value</th>
+      <th>Response1</th>
+      <th>Response1 value</th>
+      <th>Response2</th>
+      <th>Response2 value</th>
+      <th>Response3</th>
+      <th>Response3 value</th>
+      <th>Response4</th>
+      <th>Response4 value</th>
+      <th>Response5</th>
+      <th>Response5 value</th>
+      <th>Response6</th>
+      <th>Response6 value</th>
+      <th>Response7</th>
+      <th>Response7 value</th>
+      <th>Response8</th>
+      <th>Response8 value</th>
+      <th>Response9</th>
+      <th>Response9 value</th>
+      <th>Response10</th>
+      <th>Response10 value</th>
+      <th>Response11</th>
+      <th>Response11 value</th>
+      <th>Response12</th>
+      <th>Response12 value</th>
+      <th>Response13</th>
+      <th>Response13 value</th>
+      <th>Response14</th>
+      <th>Response14 value</th>
+      <th>Response15</th>
+      <th>Response15 value</th>
+      <th>Response16</th>
+      <th>Response16 value</th>
+      <th>Required</th>
+      <th colspan="3"></th>
+    </tr>
+    <% @surveys.each do |survey| %>
+      <tr>
+        <td><%= survey.group %></td>
+        <td><%= survey.orderer %></td>
+        <td><%= survey.survey_type %></td>
+        <td><%= survey.language %></td>
+        <td><%= survey.data_label %></td>
+        <td><%= survey.content %></td>
+        <td><%= survey.response0 %></td>
+        <td><%= survey.response0_value %></td>
+        <td><%= survey.response1 %></td>
+        <td><%= survey.response1_value %></td>
+        <td><%= survey.response2 %></td>
+        <td><%= survey.response2_value %></td>
+        <td><%= survey.response3 %></td>
+        <td><%= survey.response3_value %></td>
+        <td><%= survey.response4 %></td>
+        <td><%= survey.response4_value %></td>
+        <td><%= survey.response5 %></td>
+        <td><%= survey.response5_value %></td>
+        <td><%= survey.response6 %></td>
+        <td><%= survey.response6_value %></td>
+        <td><%= survey.response7 %></td>
+        <td><%= survey.response7_value %></td>
+        <td><%= survey.response8 %></td>
+        <td><%= survey.response8_value %></td>
+        <td><%= survey.response9 %></td>
+        <td><%= survey.response9_value %></td>
+        <td><%= survey.response10 %></td>
+        <td><%= survey.response10_value %></td>
+        <td><%= survey.response11 %></td>
+        <td><%= survey.response11_value %></td>
+        <td><%= survey.response12 %></td>
+        <td><%= survey.response12_value %></td>
+        <td><%= survey.response13 %></td>
+        <td><%= survey.response13_value %></td>
+        <td><%= survey.response14 %></td>
+        <td><%= survey.response14_value %></td>
+        <td><%= survey.response15 %></td>
+        <td><%= survey.response15_value %></td>
+        <td><%= survey.response16 %></td>
+        <td><%= survey.response16_value %></td>
+        <td><%= survey.required %></td>
+        <td><%= link_to 'Show', survey %></td>
+        <td><%= link_to 'Edit', edit_survey_path(survey) %></td>
+        <td><%= link_to 'Destroy', survey, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+</table>
