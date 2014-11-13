@@ -13,19 +13,13 @@ Rails.application.routes.draw do
   get "active_index", to: "participants#active_index", as: :active_participants
 
   #Health Workers
-  get "health_workers", to: "health_workers#index", as: :health_workers
-  get "health_workers/new", to: "health_workers#new", as: :new_health_worker
-  get "health_workers/edit/:id", to: "health_workers#edit", as: :edit_health_worker
+  resources :health_workers, only: [:index, :edit, :new]
 
   # RAs
-  get "research_assistants", to: "research_assistants#index", as: :research_assistants
-  get "research_assistants/new", to: "research_assistants#new", as: :new_research_assistant
-  get "research_assistants/edit/:id", to: "research_assistants#edit", as: :edit_research_assistant
+  resources :research_assistants, only: [:index, :new, :edit]
 
   # Supervisors
-  get "supervisors", to: "supervisors#index", as: :supervisors
-  get "supervisors/new", to: "supervisors#new", as: :new_supervisor
-  get "supervisors/edit/:id", to: "supervisors#edit", as: :edit_supervisor
+  resources :supervisors, only: [:index, :new, :edit]
 
   resources :surveys do
     collection { post :import }
@@ -35,8 +29,9 @@ Rails.application.routes.draw do
 
   # For client-side User and Participant syncing
   namespace "api", constraints: { format: 'json' }  do
-    get "users", to: "users#index"
+    resources :users, only: [:index]
     resources :participants, only: [:create, :index]
+    resources :surveys, only: [:index]
   end
 
   get 'home', to: 'home#index'
