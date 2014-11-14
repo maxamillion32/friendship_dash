@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   # Route to capture API post requests and set pre-flight headers
   match "api/participants", to: "application#options", via: :options
+  match "api/responses", to: "application#options", via: :options
 
   resources :participants, only: [:index, :show, :update]
 
