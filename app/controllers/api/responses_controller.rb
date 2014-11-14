@@ -49,7 +49,7 @@ module Api
     private
 
     def response_params
-      params.permit(response: [ :guid, :participant_id, :user_id, :timestamp, responses: {}]).require(:responses)
+      params.permit(response: {}, responses: [ :guid, :participant_id, :user_id, :timestamp, responses: {}]).require(:responses)
     end
   end
 end
