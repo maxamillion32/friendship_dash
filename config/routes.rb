@@ -32,6 +32,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index]
     resources :participants, only: [:create, :index]
     resources :surveys, only: [:index]
+    resources :responses, only: [:create]
   end
 
   get 'home', to: 'home#index'

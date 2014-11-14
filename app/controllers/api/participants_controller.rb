@@ -19,11 +19,7 @@ module Api
             begin
               ra = User.where(guid: p["research_assistant_id"]).first
 
-              if ra
-                ra_id = ra.id
-              else
-                ra_id = nil
-              end
+              ra_id = ra.try(:id)
 
               Participant.create({
                 guid: p["guid"],
