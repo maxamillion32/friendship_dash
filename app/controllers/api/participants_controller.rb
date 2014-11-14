@@ -10,14 +10,22 @@ module Api
     end
 
     def create
-      participants = participant_params 
-      
+      participants = participant_params
+
       if participants
         Participant.transaction do
           participants.each do |p|
-            
+
             begin
-              Participant.create({ 
+              ra = User.where(guid: p["research_assistant_id"]).first
+
+              if ra
+                ra_id = ra.id
+              else
+                ra_id = nil
+              end
+
+              Participant.create({
                 guid: p["guid"],
                 patient_identifier: p["patient_identifier"],
                 first_name: p["first_name"],
@@ -25,25 +33,26 @@ module Api
                 address: p["address"],
                 city: p["city"],
                 phone: p["phone"],
-                clinic: p["clinic"]
+                clinic: p["clinic"],
+                research_assistant_id: ra_id
             }) unless Participant.where(guid: p["guid"]).any?
-            
+
             rescue ActiveRecord::RecordNotUnique
               retry
             end
-          end 
+          end
         end
         render json: { success: true, res: "Nice Work" }
       else
         render json: { error: true, res: "No patient data sent" }
-        
-      end     
+
+      end
     end
 
     private
 
     def participant_params
-      params.permit(participant: {}, participants: [:patient_identifier, :clinic, :first_name, :last_name, :address, :city, :phone, :guid, :timestamp, :created_at]).require(:participants)
+      params.permit(participant: {}, participants: [:patient_identifier, :clinic, :first_name, :last_name, :address, :city, :phone, :guid, :research_assistant_id, :timestamp, :created_at]).require(:participants)
     end
   end
 end
