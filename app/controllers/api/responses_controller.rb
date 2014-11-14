@@ -5,41 +5,43 @@ module Api
     respond_to :json
 
     def create
-      responses = response_params
+      responses = response_params["surveyResponses"]
 
       if responses
 
-        Response.transaction do
+        responses.each do |p|
 
-          responses.each do |p|
+            user = User.where(guid: p["user_id"]).first
+
+            participant = Participant.where(guid: p["patient_id"]).first
+
+            user_id = user.try(:id)
+
+            participant_id = participant.try(:id)
 
             p["responses"].each do |key, value|
 
+              survey = Survey.where(guid: key).first
+              survey_id = survey.try(:id)
+
               begin
-                user = User.where(guid: p["research_assistant_id"]).first
-                survey = Survey.where(guid: key).first
-                participant = Participant.where(guid: p["patient_id"]).first
-
-                user_id = user.try(:id)
-                survey_id = survey.try(:id)
-                participant_id = participant.try(:id)
-
-                Response.create({
-                  guid: p["guid"],
+                Response.create(
                   participant_id: participant_id,
                   survey_id: survey_id,
                   user_id: user_id,
                   response_value: value,
-                  timestamp: p["timestamp"]
-              }) unless Response.where(guid: p["guid"]).any?
+                  timestamp: p["created_at"]
+              ) unless Response.where(survey_id: survey_id, participant_id: participant_id).any?
 
               rescue ActiveRecord::RecordNotUnique
-                retry
               end
-            end
+
           end
+
         end
+
         render json: { success: true, res: "Nice Work" }
+
       else
         render json: { error: true, res: "No response data sent" }
 
@@ -49,7 +51,8 @@ module Api
     private
 
     def response_params
-      params.permit(responses: {}, response: [ :guid, :participant_id, :user_id, :timestamp, responses: {}]).require(:responses)
+      params.permit!
     end
   end
 end
+
