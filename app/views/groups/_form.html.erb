@@ -1,0 +1,25 @@
+<%= form_for(@group) do |f| %>
+  <% if @group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@group.errors.count, "error") %> prohibited this survey question from being saved:</h2>
+
+      <ul>
+      <% @group.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :group_name %><br>
+    <%= f.text_field :group_name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :surveys %>
+    <%= f.select :survey_ids, Survey.all.collect {|x| [x.survey_name, x.id]}, {}, multiple: true,  class: "form-control"  %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

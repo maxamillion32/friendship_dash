@@ -22,17 +22,20 @@ Rails.application.routes.draw do
   # Supervisors
   resources :supervisors, only: [:index, :new, :edit]
 
-  resources :surveys do
+  resources :survey_questions do
     collection { post :import }
   end
 
+  resources :survey_collections
+  resources :groups
+  resources :surveys
   resources :users, only: [:update]
 
   # For client-side User and Participant syncing
   namespace "api", constraints: { format: 'json' }  do
     resources :users, only: [:index]
     resources :participants, only: [:create, :index]
-    resources :surveys, only: [:index]
+    resources :survey_questions, only: [:index]
     resources :responses, only: [:create]
   end
 

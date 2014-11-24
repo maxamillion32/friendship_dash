@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141114170750) do
+ActiveRecord::Schema.define(version: 20141124183511) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "groups", force: true do |t|
+    t.string   "group_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "participants", force: true do |t|
     t.string   "patient_identifier",                        null: false
@@ -33,7 +39,6 @@ ActiveRecord::Schema.define(version: 20141114170750) do
   end
 
   create_table "responses", force: true do |t|
-    t.integer  "survey_id"
     t.string   "guid"
     t.integer  "participant_id"
     t.integer  "user_id"
@@ -41,14 +46,25 @@ ActiveRecord::Schema.define(version: 20141114170750) do
     t.string   "response_value"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "survey_question_id"
   end
 
   add_index "responses", ["participant_id"], name: "index_responses_on_participant_id", using: :btree
-  add_index "responses", ["survey_id"], name: "index_responses_on_survey_id", using: :btree
+  add_index "responses", ["survey_question_id"], name: "index_responses_on_survey_question_id", using: :btree
   add_index "responses", ["user_id"], name: "index_responses_on_user_id", using: :btree
 
-  create_table "surveys", force: true do |t|
-    t.string   "group",                            null: false
+  create_table "survey_collections", force: true do |t|
+    t.integer  "survey_id"
+    t.integer  "group_id"
+    t.integer "order", unique: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "survey_collections", ["group_id"], name: "index_survey_collections_on_group_id", using: :btree
+  add_index "survey_collections", ["survey_id"], name: "index_survey_collections_on_survey_id", using: :btree
+
+  create_table "survey_questions", force: true do |t|
     t.string   "guid",                             null: false
     t.integer  "orderer",                          null: false
     t.string   "survey_type",                      null: false
@@ -90,6 +106,16 @@ ActiveRecord::Schema.define(version: 20141114170750) do
     t.string   "response16"
     t.string   "response16_value"
     t.boolean  "required",         default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "survey_id"
+  end
+
+  add_index "survey_questions", ["survey_id"], name: "index_survey_questions_on_survey_id", using: :btree
+
+  create_table "surveys", force: true do |t|
+    t.string   "survey_name"
+    t.string   "guid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

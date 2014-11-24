@@ -1,13 +1,10 @@
 class Survey < ActiveRecord::Base
+    has_many :survey_questions
+    has_many :survey_collections
+    has_many :groups, through: :survey_collections
     before_validation :generate_guid,  on: :create
 
-    def self.import(file)
-        CSV.foreach(file.path, headers: true) do |row|
-            Survey.create! row.to_hash
-        end
-    end
-
-    def generate_guid
+      def generate_guid
         self.guid = SecureRandom.uuid
     end
 end

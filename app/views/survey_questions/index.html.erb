@@ -1,0 +1,128 @@
+
+<%= render partial: 'partials/back', locals: {path: root_path}  %>
+
+<div class="pull-right">
+  <%= form_tag import_survey_questions_path, class: "form form-inline", multipart: true do %>
+    <div class="form-group">
+      <%= file_field_tag :file %>
+      <p class="help-block">CSV column names must match this table exactly</p>
+    </div>
+    <%= submit_tag "Import", class: "btn btn-primary btn-sm pull-right" %>
+  <% end %>
+
+  <%= search_form_for @search, class: "form-inline" do |f| %>
+  <div class="form-group">
+      <%= f.label :survey_survey_name_cont, "Survey", class: "sr-only"  %>
+      <%= f.text_field :survey_survey_name_cont, class: "form-control", placeholder: "Survey" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :language_cont, "Language", class: "sr-only"  %>
+      <%= f.text_field :language_cont, class: "form-control", placeholder: "Language" %>
+    </div>
+    <%= f.submit "Filter", class: "btn btn-default" %>
+  <% end %>
+</div>
+
+<h1>Survey Questions</h1>
+
+<table class="table table-bordered table-striped">
+    <tr>
+      <th colspan="2"></th>
+      <th>Survey</th>
+      <th><%= sort_link(@search, :orderer, 'Order', default_order: :asc )%></th>
+      <th>Form Type</th>
+      <th>Language</th>
+      <th>Data label</th>
+      <th>Content</th>
+      <th>Response0</th>
+      <th>Response0 value</th>
+      <th>Response1</th>
+      <th>Response1 value</th>
+      <th>Response2</th>
+      <th>Response2 value</th>
+      <th>Response3</th>
+      <th>Response3 value</th>
+      <th>Response4</th>
+      <th>Response4 value</th>
+      <th>Response5</th>
+      <th>Response5 value</th>
+      <th>Response6</th>
+      <th>Response6 value</th>
+      <th>Response7</th>
+      <th>Response7 value</th>
+      <th>Response8</th>
+      <th>Response8 value</th>
+      <th>Response9</th>
+      <th>Response9 value</th>
+      <th>Response10</th>
+      <th>Response10 value</th>
+      <th>Response11</th>
+      <th>Response11 value</th>
+      <th>Response12</th>
+      <th>Response12 value</th>
+      <th>Response13</th>
+      <th>Response13 value</th>
+      <th>Response14</th>
+      <th>Response14 value</th>
+      <th>Response15</th>
+      <th>Response15 value</th>
+      <th>Response16</th>
+      <th>Response16 value</th>
+      <th>Required</th>
+    </tr>
+    <% @survey_questions.each do |survey_question| %>
+      <tr>
+        <td>
+          <%= link_to survey_question do%>
+            <%= icon "eye" %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to edit_survey_question_path(survey_question) do %>
+            <%= icon "edit" %>
+          <% end %>
+        </td>
+        <td><%= survey_question.survey.survey_name %></td>
+        <td><%= survey_question.orderer %></td>
+        <td><%= survey_question.survey_type %></td>
+        <td><%= survey_question.language %></td>
+        <td><%= survey_question.data_label %></td>
+        <td><%= survey_question.content %></td>
+        <td><%= survey_question.response0 %></td>
+        <td><%= survey_question.response0_value %></td>
+        <td><%= survey_question.response1 %></td>
+        <td><%= survey_question.response1_value %></td>
+        <td><%= survey_question.response2 %></td>
+        <td><%= survey_question.response2_value %></td>
+        <td><%= survey_question.response3 %></td>
+        <td><%= survey_question.response3_value %></td>
+        <td><%= survey_question.response4 %></td>
+        <td><%= survey_question.response4_value %></td>
+        <td><%= survey_question.response5 %></td>
+        <td><%= survey_question.response5_value %></td>
+        <td><%= survey_question.response6 %></td>
+        <td><%= survey_question.response6_value %></td>
+        <td><%= survey_question.response7 %></td>
+        <td><%= survey_question.response7_value %></td>
+        <td><%= survey_question.response8 %></td>
+        <td><%= survey_question.response8_value %></td>
+        <td><%= survey_question.response9 %></td>
+        <td><%= survey_question.response9_value %></td>
+        <td><%= survey_question.response10 %></td>
+        <td><%= survey_question.response10_value %></td>
+        <td><%= survey_question.response11 %></td>
+        <td><%= survey_question.response11_value %></td>
+        <td><%= survey_question.response12 %></td>
+        <td><%= survey_question.response12_value %></td>
+        <td><%= survey_question.response13 %></td>
+        <td><%= survey_question.response13_value %></td>
+        <td><%= survey_question.response14 %></td>
+        <td><%= survey_question.response14_value %></td>
+        <td><%= survey_question.response15 %></td>
+        <td><%= survey_question.response15_value %></td>
+        <td><%= survey_question.response16 %></td>
+        <td><%= survey_question.response16_value %></td>
+        <td><%= survey_question.required %></td>
+      </tr>
+    <% end %>
+</table>

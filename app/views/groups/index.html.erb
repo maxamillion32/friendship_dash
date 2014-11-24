@@ -1,25 +1,25 @@
 <%= render partial: 'partials/back', locals: {path: root_path}  %>
 
-<h1>Surveys</h1>
+<h1>Groups</h1>
 
 <table class="table table-bordered table-striped">
     <tr>
       <th colspan="2"></th>
-      <th>Survey Name</th>
+      <th>Group Name</th>
     </tr>
-    <% @surveys.each do |survey| %>
+    <% @groups.each do |group| %>
       <tr>
         <td>
-          <%= link_to survey do%>
+          <%= link_to group do%>
             <%= icon "eye" %>
           <% end %>
         </td>
         <td>
-          <%= link_to edit_survey_path(survey) do %>
+          <%= link_to edit_group_path(group) do %>
             <%= icon "edit" %>
           <% end %>
         </td>
-        <td><%= survey.survey_name %></td>
+        <td><%= group.group_name %></td>
       </tr>
     <% end %>
   </table>
