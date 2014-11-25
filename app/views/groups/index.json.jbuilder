@@ -4,8 +4,8 @@ json.array!(@groups) do |group|
     json.group_name
 
     json.array! group.surveys do |survey|
-        json.group_name.survey survey.survey_name
-        json.group_name.survey.order survey.survey_collections.where(group_id: group.id).first.order
+        json.survey survey.survey_name
+        json.order survey.survey_collections.where(group_id: group.id).first.order
         json.array! survey.survey_questions do |survey_question|
             json.guid survey_question.guid
             json.orderer survey_question.orderer
