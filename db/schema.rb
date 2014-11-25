@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141124183511) do
+ActiveRecord::Schema.define(version: 20141125171932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,15 +30,16 @@ ActiveRecord::Schema.define(version: 20141124183511) do
     t.string   "city"
     t.string   "phone"
     t.integer  "health_worker_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "guid"
     t.string   "clinic"
     t.integer  "research_assistant_id"
     t.string   "status",                default: "pending"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "responses", force: true do |t|
+    t.integer  "survey_question_id"
     t.string   "guid"
     t.integer  "participant_id"
     t.integer  "user_id"
@@ -46,7 +47,6 @@ ActiveRecord::Schema.define(version: 20141124183511) do
     t.string   "response_value"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "survey_question_id"
   end
 
   add_index "responses", ["participant_id"], name: "index_responses_on_participant_id", using: :btree
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20141124183511) do
   create_table "survey_collections", force: true do |t|
     t.integer  "survey_id"
     t.integer  "group_id"
+    t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -63,8 +64,56 @@ ActiveRecord::Schema.define(version: 20141124183511) do
   add_index "survey_collections", ["group_id"], name: "index_survey_collections_on_group_id", using: :btree
   add_index "survey_collections", ["survey_id"], name: "index_survey_collections_on_survey_id", using: :btree
 
+  create_table "survey_questions", force: true do |t|
+    t.string   "guid",                             null: false
+    t.integer  "orderer",                          null: false
+    t.string   "survey_type",                      null: false
+    t.string   "language",                         null: false
+    t.string   "data_label"
+    t.text     "content"
+    t.string   "response0"
+    t.string   "response0_value"
+    t.string   "response1"
+    t.string   "response1_value"
+    t.string   "response2"
+    t.string   "response2_value"
+    t.string   "response3"
+    t.string   "response3_value"
+    t.string   "response4"
+    t.string   "response4_value"
+    t.string   "response5"
+    t.string   "response5_value"
+    t.string   "response6"
+    t.string   "response6_value"
+    t.string   "response7"
+    t.string   "response7_value"
+    t.string   "response8"
+    t.string   "response8_value"
+    t.string   "response9"
+    t.string   "response9_value"
+    t.string   "response10"
+    t.string   "response10_value"
+    t.string   "response11"
+    t.string   "response11_value"
+    t.string   "response12"
+    t.string   "response12_value"
+    t.string   "response13"
+    t.string   "response13_value"
+    t.string   "response14"
+    t.string   "response14_value"
+    t.string   "response15"
+    t.string   "response15_value"
+    t.string   "response16"
+    t.string   "response16_value"
+    t.boolean  "required",         default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "survey_id"
+  end
+
   create_table "surveys", force: true do |t|
     t.string   "survey_name"
+    t.string   "guid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

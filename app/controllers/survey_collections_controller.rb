@@ -46,6 +46,6 @@ class SurveyCollectionsController < ApplicationController
     end
 
     def survey_collection_params
-      params.require(:survey_collection).permit(:group_id, :order, :survey_id)
+      params.require(:survey_collection).permit(:group_id, :position, :survey_id)
     end
 end

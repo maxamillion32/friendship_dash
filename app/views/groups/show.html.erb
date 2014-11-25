@@ -8,12 +8,12 @@
       <th>Survey Name</th>
       <th>Order</th>
     </tr>
-    <% @group.survey_collections(order: :asc).each do |survey_collection| %>
+    <% @group.survey_collections(position: :asc).each do |survey_collection| %>
       <tr>
         <td><%= survey_collection.survey.survey_name %></td>
         <td>
           <%= form_for survey_collection, method: :put, remote: true do |f| %>
-            <%= f.number_field :order %>
+            <%= f.number_field :position %>
             <%= f.submit %>
           <% end %>
         </td>
