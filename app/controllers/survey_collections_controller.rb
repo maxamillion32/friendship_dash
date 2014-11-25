@@ -23,14 +23,16 @@ class SurveyCollectionsController < ApplicationController
   end
 
   def create
-    @survey_collection = SurveyCollection.new(survey_params)
+    @survey_collection = SurveyCollection.new(survey_collection_params)
     @survey_collection.save
     respond_with(@survey_collection)
   end
 
   def update
-    @survey_collection.update(survey_params)
-    respond_with(@survey_collection)
+    @survey_collection.update(survey_collection_params)
+      respond_to do |format|
+        format.js   { head :ok, content_type: "text/html" }
+      end
   end
 
   def destroy
@@ -43,9 +45,7 @@ class SurveyCollectionsController < ApplicationController
       @survey_collection = SurveyCollection.find(params[:id])
     end
 
-    def survey_params
+    def survey_collection_params
       params.require(:survey_collection).permit(:group_id, :order, :survey_id)
     end
-end
-
 end

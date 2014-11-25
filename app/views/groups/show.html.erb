@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @group.group_name %></h1>
+
+<h2>Surveys in <%= @group.group_name %></h2>
+<table class="table table-bordered table-striped">
+    <tr>
+      <th>Survey Name</th>
+      <th>Order</th>
+    </tr>
+    <% @group.survey_collections(order: :asc).each do |survey_collection| %>
+      <tr>
+        <td><%= survey_collection.survey.survey_name %></td>
+        <td>
+          <%= form_for survey_collection, method: :put, remote: true do |f| %>
+            <%= f.number_field :order %>
+            <%= f.submit %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+<%= link_to 'Back', groups_path %>

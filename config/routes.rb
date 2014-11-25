@@ -36,6 +36,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index]
     resources :participants, only: [:create, :index]
     resources :survey_questions, only: [:index]
+    resources :groups, only: [:index]
     resources :responses, only: [:create]
   end
 

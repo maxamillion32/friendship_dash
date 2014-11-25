@@ -10,7 +10,7 @@
     <% @surveys.each do |survey| %>
       <tr>
         <td>
-          <%= link_to survey do%>
+          <%= link_to survey_questions_path(q: {survey_survey_name_cont: survey.survey_name}) do%>
             <%= icon "eye" %>
           <% end %>
         </td>

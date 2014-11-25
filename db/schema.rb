@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20141124183511) do
   create_table "survey_collections", force: true do |t|
     t.integer  "survey_id"
     t.integer  "group_id"
-    t.integer "order", unique: true
+    t.integer "order"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
