@@ -1,6 +1,7 @@
 class Group < ActiveRecord::Base
     has_many :survey_collections, -> { order "position" }, dependent: :destroy
     has_many :surveys, through: :survey_collections
+    has_many :responses
 
     before_validation :generate_guid,  on: :create
 

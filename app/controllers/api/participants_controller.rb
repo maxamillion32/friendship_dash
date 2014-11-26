@@ -5,7 +5,7 @@ module Api
     respond_to :json
 
     def index
-      @participants = Participant.where(status: "active")
+      @participants = Participant.all
       render "participants/index.json"
     end
 
@@ -38,7 +38,7 @@ module Api
             end
           end
         end
-        render json: { success: true, res: "Nice Work" }
+        render json: { success: true, res: "patient data imported" }
       else
         render json: { error: true, res: "No patient data sent" }
 

@@ -1,6 +1,7 @@
 class SurveyQuestion < ActiveRecord::Base
     before_validation :generate_guid,  on: :create
     belongs_to :survey
+    has_many :responses
 
     def self.import(file)
         CSV.foreach(file.path, headers: true) do |row|
