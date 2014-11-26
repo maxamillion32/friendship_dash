@@ -21,13 +21,13 @@ module Api
 
             p["responses"].each do |key, value|
 
-              survey = Survey.where(guid: key).first
-              survey_id = survey.try(:id)
+              survey_question = SurveyQuestion.where(guid: key).first
+              survey_question_id = survey_question.try(:id)
 
               begin
                 Response.create(
                   participant_id: participant_id,
-                  survey_id: survey_id,
+                  survey_question_id: survey_question_id,
                   user_id: user_id,
                   response_value: value,
                   timestamp: p["created_at"]

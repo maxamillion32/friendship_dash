@@ -11,171 +11,171 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :survey %><br>
-    <%= collection_select(:survey_question, :survey_id, Survey.all, :id, :survey_name, prompt: true) %>
+  <div class="form-group">
+    <%= f.label :survey %>
+    <%= collection_select(:survey_question, :survey_id, Survey.all, :id, :survey_name, prompt: true, class: "form-control")%>
   </div>
-  <div class="field">
-    <%= f.label :orderer %><br>
-    <%= f.number_field :orderer %>
+  <div class="form-group">
+    <%= f.label :orderer %>
+    <%= f.number_field :orderer, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :survey_type %><br>
-    <%= f.text_field :survey_type %>
+  <div class="form-group">
+    <%= f.label :survey_type %>
+    <%= f.text_field :survey_type, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :language %><br>
-    <%= f.text_field :language %>
+  <div class="form-group">
+    <%= f.label :language %>
+    <%= f.text_field :language, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :data_label %><br>
-    <%= f.text_field :data_label %>
+  <div class="form-group">
+    <%= f.label :data_label %>
+    <%= f.text_field :data_label, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
+  <div class="form-group">
+    <%= f.label :content %>
+    <%= f.text_area :content, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :response0 %><br>
-    <%= f.text_field :response0 %>
+  <div class="form-group">
+    <%= f.label :response0 %>
+    <%= f.text_field :response0, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :response0_value %><br>
-    <%= f.text_field :response0_value %>
+  <div class="form-group">
+    <%= f.label :response0_value %>
+    <%= f.text_field :response0_value, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :response1 %><br>
-    <%= f.text_field :response1 %>
+  <div class="form-group">
+    <%= f.label :response1 %>
+    <%= f.text_field :response1, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :response1_value %><br>
-    <%= f.text_field :response1_value %>
+  <div class="form-group">
+    <%= f.label :response1_value %>
+    <%= f.text_field :response1_value, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :response2 %><br>
-    <%= f.text_field :response2 %>
+  <div class="form-group">
+    <%= f.label :response2 %>
+    <%= f.text_field :response2, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :response2_value %><br>
-    <%= f.text_field :response2_value %>
+  <div class="form-group">
+    <%= f.label :response2_value %>
+    <%= f.text_field :response2_value, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :response3 %><br>
-    <%= f.text_field :response3 %>
+  <div class="form-group">
+    <%= f.label :response3 %>
+    <%= f.text_field :response3, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :response3_value %><br>
-    <%= f.text_field :response3_value %>
+  <div class="form-group">
+    <%= f.label :response3_value %>
+    <%= f.text_field :response3_value, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :response4 %><br>
-    <%= f.text_field :response4 %>
+  <div class="form-group">
+    <%= f.label :response4 %>
+    <%= f.text_field :response4, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :response4_value %><br>
-    <%= f.text_field :response4_value %>
+  <div class="form-group">
+    <%= f.label :response4_value %>
+    <%= f.text_field :response4_value, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :response5 %><br>
-    <%= f.text_field :response5 %>
+  <div class="form-group">
+    <%= f.label :response5 %>
+    <%= f.text_field :response5, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :response5_value %><br>
-    <%= f.text_field :response5_value %>
+  <div class="form-group">
+    <%= f.label :response5_value %>
+    <%= f.text_field :response5_value, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :response6 %><br>
-    <%= f.text_field :response6 %>
+  <div class="form-group">
+    <%= f.label :response6 %>
+    <%= f.text_field :response6, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :response6_value %><br>
-    <%= f.text_field :response6_value %>
+  <div class="form-group">
+    <%= f.label :response6_value %>
+    <%= f.text_field :response6_value, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :response7 %><br>
-    <%= f.text_field :response7 %>
+  <div class="form-group">
+    <%= f.label :response7 %>
+    <%= f.text_field :response7, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :response7_value %><br>
-    <%= f.text_field :response7_value %>
+  <div class="form-group">
+    <%= f.label :response7_value %>
+    <%= f.text_field :response7_value, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :response8 %><br>
-    <%= f.text_field :response8 %>
+  <div class="form-group">
+    <%= f.label :response8 %>
+    <%= f.text_field :response8, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :response8_value %><br>
-    <%= f.text_field :response8_value %>
+  <div class="form-group">
+    <%= f.label :response8_value %>
+    <%= f.text_field :response8_value, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :response9 %><br>
-    <%= f.text_field :response9 %>
+  <div class="form-group">
+    <%= f.label :response9 %>
+    <%= f.text_field :response9, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :response9_value %><br>
-    <%= f.text_field :response9_value %>
+  <div class="form-group">
+    <%= f.label :response9_value %>
+    <%= f.text_field :response9_value, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :response10 %><br>
-    <%= f.text_field :response10 %>
+  <div class="form-group">
+    <%= f.label :response10 %>
+    <%= f.text_field :response10, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :response10_value %><br>
-    <%= f.text_field :response10_value %>
+  <div class="form-group">
+    <%= f.label :response10_value %>
+    <%= f.text_field :response10_value, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :response11 %><br>
-    <%= f.text_field :response11 %>
+  <div class="form-group">
+    <%= f.label :response11 %>
+    <%= f.text_field :response11, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :response11_value %><br>
-    <%= f.text_field :response11_value %>
+  <div class="form-group">
+    <%= f.label :response11_value %>
+    <%= f.text_field :response11_value, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :response12 %><br>
-    <%= f.text_field :response12 %>
+  <div class="form-group">
+    <%= f.label :response12 %>
+    <%= f.text_field :response12, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :response12_value %><br>
-    <%= f.text_field :response12_value %>
+  <div class="form-group">
+    <%= f.label :response12_value %>
+    <%= f.text_field :response12_value, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :response13 %><br>
-    <%= f.text_field :response13 %>
+  <div class="form-group">
+    <%= f.label :response13 %>
+    <%= f.text_field :response13, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :response13_value %><br>
-    <%= f.text_field :response13_value %>
+  <div class="form-group">
+    <%= f.label :response13_value %>
+    <%= f.text_field :response13_value, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :response14 %><br>
-    <%= f.text_field :response14 %>
+  <div class="form-group">
+    <%= f.label :response14 %>
+    <%= f.text_field :response14, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :response14_value %><br>
-    <%= f.text_field :response14_value %>
+  <div class="form-group">
+    <%= f.label :response14_value %>
+    <%= f.text_field :response14_value, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :response15 %><br>
-    <%= f.text_field :response15 %>
+  <div class="form-group">
+    <%= f.label :response15 %>
+    <%= f.text_field :response15, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :response15_value %><br>
-    <%= f.text_field :response15_value %>
+  <div class="form-group">
+    <%= f.label :response15_value %>
+    <%= f.text_field :response15_value, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :response16 %><br>
-    <%= f.text_field :response16 %>
+  <div class="form-group">
+    <%= f.label :response16 %>
+    <%= f.text_field :response16, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :response16_value %><br>
-    <%= f.text_field :response16_value %>
+  <div class="form-group">
+    <%= f.label :response16_value %>
+    <%= f.text_field :response16_value, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :required %><br>
-    <%= f.check_box :required %>
+  <div class="form-group">
+    <%= f.label :required %>
+    <%= f.check_box :required, class: "form-control"%>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Submit', class: "btn btn-primary" %>
   </div>
 <% end %>

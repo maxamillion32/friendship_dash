@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20141125171932) do
 
   create_table "groups", force: true do |t|
     t.string   "group_name"
+    t.string   "guid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

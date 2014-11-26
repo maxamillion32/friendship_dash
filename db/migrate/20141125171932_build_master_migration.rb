@@ -62,6 +62,7 @@ class BuildMasterMigration < ActiveRecord::Migration
 
     create_table :groups do |t|
       t.string :group_name
+      t.string :guid
 
       t.timestamps
     end

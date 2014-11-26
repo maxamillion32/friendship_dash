@@ -25,7 +25,7 @@
 
 <h1>Survey Questions</h1>
 
-<table class="table table-bordered table-striped">
+<table class="table table-bordered table-striped table-condensed">
     <tr>
       <th colspan="2"></th>
       <th>Survey</th>
@@ -34,7 +34,7 @@
       <th>Language</th>
       <th>Data label</th>
       <th>Content</th>
-      <th>Response0</th>
+     <!--  <th>Response0</th>
       <th>Response0 value</th>
       <th>Response1</th>
       <th>Response1 value</th>
@@ -67,7 +67,7 @@
       <th>Response15</th>
       <th>Response15 value</th>
       <th>Response16</th>
-      <th>Response16 value</th>
+      <th>Response16 value</th> -->
       <th>Required</th>
     </tr>
     <% @survey_questions.each do |survey_question| %>
@@ -88,7 +88,7 @@
         <td><%= survey_question.language %></td>
         <td><%= survey_question.data_label %></td>
         <td><%= survey_question.content %></td>
-        <td><%= survey_question.response0 %></td>
+        <!-- <td><%= survey_question.response0 %></td>
         <td><%= survey_question.response0_value %></td>
         <td><%= survey_question.response1 %></td>
         <td><%= survey_question.response1_value %></td>
@@ -121,7 +121,7 @@
         <td><%= survey_question.response15 %></td>
         <td><%= survey_question.response15_value %></td>
         <td><%= survey_question.response16 %></td>
-        <td><%= survey_question.response16_value %></td>
+        <td><%= survey_question.response16_value %></td> -->
         <td><%= survey_question.required %></td>
       </tr>
     <% end %>

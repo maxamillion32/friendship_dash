@@ -1,6 +1,7 @@
 json.array!(@groups) do |group|
 
     json.group_name group.group_name
+    json.guid group.guid
 
     json.surveys do
         json.array! group.surveys do |survey|
