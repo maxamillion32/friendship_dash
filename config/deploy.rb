@@ -66,6 +66,15 @@ NameVirtualHost *:443
     Allow from all
     Options -MultiViews
   </Directory>
+
+  RewriteEngine On
+
+  # Show maintenance page if it exists
+  ErrorDocument 503 /system/maintenance.html
+  RewriteCond %{REQUEST_URI} !\.(css|gif|jpg|png)$
+  RewriteCond %{DOCUMENT_ROOT}/system/maintenance.html -f
+  RewriteCond %{SCRIPT_FILENAME} !maintenance.html
+  RewriteRule ^.*$  -  [redirect=503,last]
 </VirtualHost>
       EOF
 

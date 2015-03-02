@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/capistrano/maintenance.git
+  revision: ab52adf89de1cda02118754e9a2952d19d8f214e
+  specs:
+    capistrano-maintenance (0.0.1)
+      capistrano (>= 3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -264,6 +271,7 @@ DEPENDENCIES
   cancan (~> 1.6)
   capistrano (~> 3.2.1)
   capistrano-bundler (~> 1.1.2)
+  capistrano-maintenance!
   capistrano-rails (~> 1.1)
   capistrano-rvm (~> 0.1)
   capybara
