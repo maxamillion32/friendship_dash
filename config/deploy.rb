@@ -33,7 +33,6 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 set :keep_releases, 5
 
 namespace :deploy_prepare do
-
   desc "Configure virtual host"
   task :create_vhost do
     on roles(:web), in: :sequence, wait: 5 do
@@ -124,11 +123,9 @@ NameVirtualHost *:443
       execute :bundle, "config", "build.pg", "--with-pg-config=/usr/pgsql-9.3/bin/pg_config"
     end
   end
-
 end
 
 namespace :deploy do
-
   desc "Change deploy dir owner to apache"
   task :set_owner do
     on roles(:web), in: :sequence, wait: 5 do

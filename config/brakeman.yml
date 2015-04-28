@@ -1,0 +1,3 @@
+---
+:skip_files:
+- app/controllers/api/responses_controller.rb
