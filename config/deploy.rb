@@ -4,7 +4,7 @@ lock "3.2.1"
 set :application, "friendship_dash"
 set :repo_url, "git@github.com:cbitstech/#{ fetch(:application) }.git"
 set :rvm_type, :system
-set :rvm_ruby_version, "2.1.5"
+set :rvm_ruby_version, "2.2.2"
 
 # Default branch is :master
 ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
