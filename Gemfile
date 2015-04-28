@@ -14,6 +14,10 @@ gem "font-awesome-sass", '~> 4.2.0'
 gem "jbuilder", "~> 2.1"
 gem "ransack"
 
+gem "sentry-raven",
+    git: "https://github.com/getsentry/raven-ruby.git",
+    tag: "0.12.3"
+
 group :development, :test do
   gem "rspec-rails", "~> 3.0.0.beta"
   gem "brakeman"
