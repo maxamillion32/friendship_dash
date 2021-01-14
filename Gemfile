@@ -8,7 +8,7 @@ gem "bootstrap-sass", "~> 3.2"
 gem "uglifier", "~> 2.5"
 gem "jquery-rails", "~> 3.1"
 gem "devise", "~> 3.2"
-gem "rails_admin", "= 0.6.3"
+gem "rails_admin", "1.4.3"
 gem "cancan", "~> 1.6"
 gem "font-awesome-sass", '~> 4.2.0'
 gem "jbuilder", "~> 2.1"
