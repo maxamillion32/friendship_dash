@@ -1,8 +1,8 @@
 GIT
-  remote: git://github.com/capistrano/maintenance.git
-  revision: ab52adf89de1cda02118754e9a2952d19d8f214e
+  remote: https://github.com/capistrano/maintenance.git
+  revision: b2fdb7a24d79d86a4d49f3d897a3a90b87610d1e
   specs:
-    capistrano-maintenance (0.0.1)
+    capistrano-maintenance (1.2.1)
       capistrano (>= 3.0)
 
 GIT
@@ -95,6 +95,7 @@ GEM
       execjs
     coffee-script-source (1.8.0)
     colorize (0.7.3)
+    concurrent-ruby (1.1.10)
     debug_inspector (0.0.2)
     devise (3.4.1)
       bcrypt (~> 3.0)
@@ -117,7 +118,8 @@ GEM
       tilt
     highline (1.6.21)
     hike (1.2.3)
-    i18n (0.6.11)
+    i18n (0.9.5)
+      concurrent-ruby (~> 1.0)
     jbuilder (2.2.5)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
