@@ -1,8 +1,8 @@
 GIT
-  remote: git://github.com/capistrano/maintenance.git
-  revision: ab52adf89de1cda02118754e9a2952d19d8f214e
+  remote: https://github.com/capistrano/maintenance.git
+  revision: b2fdb7a24d79d86a4d49f3d897a3a90b87610d1e
   specs:
-    capistrano-maintenance (0.0.1)
+    capistrano-maintenance (1.2.1)
       capistrano (>= 3.0)
 
 GIT
@@ -250,11 +250,11 @@ GEM
       net-ssh (>= 2.8.0)
     terminal-table (1.4.5)
     thor (0.19.1)
-    thread_safe (0.3.4)
+    thread_safe (0.3.6)
     tilt (1.4.1)
     turbolinks (2.5.2)
       coffee-rails
-    tzinfo (1.2.2)
+    tzinfo (1.2.10)
       thread_safe (~> 0.1)
     uglifier (2.5.3)
       execjs (>= 0.3.0)
